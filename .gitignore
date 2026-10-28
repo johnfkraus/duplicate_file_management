@@ -1,6 +1,6 @@
 archives
 move_duplicates.sh
-
+move_duplicates*.sh
 
 .DS_Store
 .idea

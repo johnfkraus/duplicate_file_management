@@ -10,6 +10,18 @@ from pathlib import Path
 from collections import defaultdict
 
 
+from datetime import datetime
+
+def create_filename_with_date(base_name='move_duplicates', extension='sh'):
+    # Generate the YYYYMMDD date string
+    date_suffix = datetime.now().strftime("%Y%m%d")
+
+    # Combine with filename
+    filename = f"{base_name}_{date_suffix}.{extension}"
+    print(f"Script: {filename=}")  # Output: filename_20261028.txt
+    return filename
+
+
 def normalize_path(path_str):
     return Path(path_str).expanduser().resolve()
 
@@ -231,8 +243,9 @@ def main():
     )
     parser.add_argument(
         "--script-name",
-        default="move_duplicates.sh",
-        help="Name of the generated bash script written in the current project directory"
+        # default="move_duplicates.sh",
+        default = create_filename_with_date('move_duplicates', 'sh'),
+        help="Name of the generated bash script written in the current project directory.  Default = move_duplicates_YYYYMMDD.sh"
     )
 
     args = parser.parse_args()

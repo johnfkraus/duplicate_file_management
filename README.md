@@ -79,6 +79,9 @@ Scan two folders and preview the plan:
 
 ```bash
 python3 find_dupes.py ~/Downloads ~/Desktop
+
+
+python3 find_dupes.py ~/Downloads/videos 
 ```
 
 Scan a folder but skip common archive locations:
@@ -92,7 +95,16 @@ Generate a script, review it, then run it manually:
 ```bash
 python3 find_dupes.py ~/Media --action script
 ./move_duplicates.sh
+
+
+python find_dupes.py ~/Downloads/videos  --action script 
+
 ```
+Then run the script:
+```bash
+sh move_duplicates.sh
+```
+
 
 ## How duplicates are decided
 
